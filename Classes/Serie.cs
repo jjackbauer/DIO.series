@@ -1,7 +1,7 @@
 using System;
 namespace DIO.series
 {
-    public class Serie : BassEntity
+    public class Serie : BaseEntity
     {
         private Genres Genre {get; set;}
         private String Title{get; set;}
