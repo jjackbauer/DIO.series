@@ -9,6 +9,8 @@ namespace DIO.series
         private String Description{get; set;}
         private int Year{get; set;}
 
+        private bool deleted {get; set;}
+
         public Serie(int Id,Genres Genre, String Title, String Description, int Year)
         {
             this.Id = Id;
@@ -16,6 +18,7 @@ namespace DIO.series
             this.Title = Title;
             this.Description = Description;
             this.Year = Year;
+            this.deleted=false;
         }
 
         public override string ToString()
@@ -26,6 +29,18 @@ namespace DIO.series
             output+="Description: "+this.Description+Environment.NewLine;
             output+="Since: "+this.Year+Environment.NewLine;
             return output;
+        }
+        public int getId()
+        {
+            return this.Id;
+        }
+        public String getTitle()
+        {
+            return this.Title;
+        }
+        public void Delete()
+        {
+            this.deleted=true;
         }
     }
 }

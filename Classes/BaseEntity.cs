@@ -1,6 +1,6 @@
 namespace DIO.series
 {
-    public abstract class BassEntity
+    public abstract class BaseEntity
     {
         public int Id {get; protected set;}
 
