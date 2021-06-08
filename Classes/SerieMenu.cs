@@ -4,6 +4,8 @@ namespace DIO.series
 {
     public class SerieMenu : Menu
     {
+        static SerieRepository  Repository = new SerieRepository();
+
         public SerieMenu()
         {
             Headers.Add("Dio.Series Demo");
@@ -15,27 +17,37 @@ namespace DIO.series
             Options.Add(setOption("Update Series",'3',true,FunctionUpdateSeries));
             Options.Add(setOption("Delete Series",'4',true,FunctionDeleteSeries));
             Options.Add(setOption("View Series",'5',true,FunctionViewSeries));
-            Options.Add(setOption("Clear Screen",'C',true,Console.Clear));
+            Options.Add(setOption("Clear Screen",'C',true,Clear));
 
         }
-        public void FunctionListSeries()
-        {
-            
+        static void FunctionListSeries()
+        {   
+            Clear();
+            if((Repository.GetList()).Count == 0 )
+            {
+                Console.WriteLine("There is no register stored");
+                WaitForKey();
+                return;
+            }
+                
+
+            Console.Write(Repository);
+            WaitForKey();
         }
-        public void FunctionAddSeries()
+        static void FunctionAddSeries()
         {
             
         }
 
-        public void FunctionUpdateSeries()
+        static void FunctionUpdateSeries()
         {
             
         }
-        public void FunctionDeleteSeries()
+        static void FunctionDeleteSeries()
         {
             
         }
-        public void FunctionViewSeries()
+        static void FunctionViewSeries()
         {
 
         }

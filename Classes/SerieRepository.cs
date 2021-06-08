@@ -41,9 +41,19 @@ namespace DIO.series
             if(IsInBounds(IdItem))
                 Listing[IdItem] = Entity;
         }
+        public override string ToString()
+        {
+            string output  = "";
+            
+            foreach(Serie s in Listing)
+                output+=s.ToString()+Environment.NewLine;
+
+            return output;
+        }
         private bool IsInBounds(int IdItem)
         {
             return (Listing.Count > IdItem && IdItem >= 0);
         }
+        
     }
 }

@@ -47,7 +47,7 @@ namespace DIO.series
         
         public void ListOptions()
         {   
-            Console.Clear();
+            Clear();
 
             foreach(String s in Headers)
                 Console.WriteLine(s);
@@ -63,7 +63,17 @@ namespace DIO.series
             Console.Write("Choose Wisely >");
         }
 
- 
+        public static void Clear()
+        {
+            for(int i=0; i<80; i++)
+                Console.WriteLine("");
+        }
+        public static void WaitForKey()
+        { 
+            Console.WriteLine("Press enter to continue...");
+            String s = Console.ReadLine();
+        }
+
     }
 
     public struct Option
