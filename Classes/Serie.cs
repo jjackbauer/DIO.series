@@ -28,6 +28,7 @@ namespace DIO.series
             output+="Title: "+this.Title+Environment.NewLine;
             output+="Description: "+this.Description+Environment.NewLine;
             output+="Since: "+this.Year+Environment.NewLine;
+            output+=this.deleted ? "Deleted Register"+Environment.NewLine:"";
             return output;
         }
         public int getId()

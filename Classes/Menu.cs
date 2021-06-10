@@ -18,20 +18,30 @@ namespace DIO.series
                 bool InvalidOption=true;
                 ListOptions();
                 userOption = Console.ReadLine().ToUpper();
+                //Console.WriteLine("userOption[0] = {0}",userOption[0]);
+                //Console.WriteLine("Options.Count = {0}",Options.Count);
+                //WaitForKey();
 
                 foreach(Option o in Options)
                 {
-                    if(o.Command == userOption[0])
+                    //Console.WriteLine("o.Command = {0}",o.Command);
+                    //WaitForKey();
+                    
+                    if(o.Command == (userOption.ToUpper())[0])
                     {
                         InvalidOption=false;
                         o.Handler();
                         break;
                     }
 
-                    if(InvalidOption)
-                        throw new ArgumentOutOfRangeException();
                 }
+
+                if(InvalidOption && userOption.ToUpper()[0] != Terminator)
+                    throw new ArgumentOutOfRangeException();
+
             }while(userOption[0] != Terminator);
+
+             
         }
         public Option setOption(String OptionName, char Command, bool Enabled, del Handler)
         {
